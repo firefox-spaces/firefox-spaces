@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hide Firefox’s tab bar</title>
+    <link rel="stylesheet" href="setup.css">
+  </head>
+  <body>
+    <main>
+      <h1>Hide Firefox’s tab bar</h1>
+      <p class="lede">
+        The Spaces sidebar replaces the row of tabs at the top of the window. Firefox doesn’t let
+        extensions hide that row, so it takes a small style file that you add once. It takes about
+        two minutes, and you can undo it at any time.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <h2>Allow custom styles</h2>
+          <p>
+            Type <code>about:config</code> in the address bar and press Enter. Accept the warning, search for
+            the setting below, and double-click it so it reads <strong>true</strong>.
+          </p>
+          <div class="copy-row">
+            <code id="pref-name"></code>
+            <button class="btn" data-copy="pref">Copy</button>
+          </div>
+        </li>
+
+        <li>
+          <h2>Add the style file</h2>
+          <p>
+            Type <code>about:support</code> in the address bar. Next to <strong>Profile Folder</strong>, click
+            <strong id="open-folder-label">Open Folder</strong>.
+          </p>
+          <p class="warn" id="mac-folder-hint" hidden>
+            Finder opens the folder <em>around</em> your profile, with your profile folder highlighted (its name
+            ends in something like <code>.default-release</code>). Double-click that highlighted folder to go
+            inside it first. A <code>chrome</code> folder made one level up is ignored.
+          </p>
+          <p>
+            Inside your profile folder, create a folder named <code>chrome</code> (all lowercase), if there isn’t one already.
+            Put the file <code>userChrome.css</code> inside it:
+          </p>
+          <div class="actions">
+            <button class="btn primary" id="download">Download userChrome.css</button>
+            <button class="btn" data-copy="css">Copy the CSS instead</button>
+          </div>
+          <p class="hint" id="download-hint" hidden>
+            Saved to your Downloads folder. Move it into the <code>chrome</code> folder. If you already have a
+            userChrome.css there, paste the CSS at the end of it instead of replacing it.
+          </p>
+          <details>
+            <summary>What’s in the file</summary>
+            <pre id="css"></pre>
+          </details>
+        </li>
+
+        <li id="mac-step" hidden>
+          <h2>Keep the window buttons</h2>
+          <p>
+            On macOS, the close, minimize and full-screen buttons live in the tab bar. To keep them, right-click
+            the toolbar, choose <strong>Customize Toolbar…</strong>, tick <strong>Title Bar</strong> at the bottom
+            left, and click <strong>Done</strong>.
+          </p>
+        </li>
+
+        <li>
+          <h2>Restart Firefox</h2>
+          <p>Quit Firefox completely and open it again. The tab bar is gone, and the sidebar’s title bar too.</p>
+        </li>
+      </ol>
+
+      <section class="notes">
+        <h2>What the file hides</h2>
+        <ul>
+          <li><strong>The tab bar</strong> at the top of the window. The sidebar replaces it.</li>
+          <li><strong>The title bar above the sidebar</strong>, the strip with a name and a ✕. Firefox draws it over
+            every sidebar and extensions can’t remove it — and the old sidebar sometimes shows another extension’s
+            name, such as Bitwarden, while the Spaces sidebar is open. Firefox’s current sidebar (Firefox 136 and
+            newer) uses a new header element that doesn’t say which panel it belongs to, so the file hides it on
+            <em>every</em> panel there — Bookmarks and History lose their label and ✕ too, but the sidebar’s own
+            controls still close them. On the old sidebar (<code>sidebar.revamp</code> set to false) only extension
+            sidebars are affected and Bookmarks and History keep their header.</li>
+          <li><strong>The profile label in the address bar.</strong> Each space keeps its own cookies and logins in a
+            Firefox container, and Firefox normally shows that container’s name and color at the right end of the
+            address bar. The space’s name and color already tell you where you are, so it’s hidden.</li>
+        </ul>
+        <p class="hint">If you add this file by hand, check that all three parts are in it, and that the title-bar rule
+          lists both <code>#sidebar-header</code> and <code>#sidebar-panel-header</code> — an older copy only has the
+          first, which current Firefox ignores, leaving the title bar visible.</p>
+
+        <h2>Still seeing the tab bar after restarting?</h2>
+        <ul>
+          <li>Check the setting in step 1 reads <strong>true</strong>.</li>
+          <li>The <code>chrome</code> folder must be <em>inside</em> your profile folder, the one listed next to
+            <strong>Profile Folder</strong> in <code>about:support</code>, not next to it.</li>
+          <li>The file must be named exactly <code>userChrome.css</code>, not <code>userChrome.css.txt</code> or
+            <code>userChrome.rtf</code>. Text editors sometimes add an extension you can’t see.</li>
+          <li>Quit Firefox completely (Firefox → Quit on macOS), not just close the window.</li>
+        </ul>
+
+        <h2>Good to know</h2>
+        <ul>
+          <li>Leave Firefox’s own vertical tabs turned off (Settings → General → Browser Layout). This file hides the horizontal tab bar only.</li>
+          <li>To undo it, delete <code>userChrome.css</code> from the <code>chrome</code> folder and restart Firefox.</li>
+          <li>You can reopen this page from the Spaces sidebar: ⚙ Settings → <em>Hide Firefox’s tab bar</em>.</li>
+        </ul>
+      </section>
+    </main>
+    <div id="toast" hidden></div>
+    <script type="module" src="setup.js"></script>
+  </body>
+</html>

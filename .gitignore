@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output — signed .xpi files are attached to GitHub Releases, not committed
+web-ext-artifacts/
+*.xpi
+
+# Local signing / test state
+extension/.amo-upload-uuid
+dev/.snapshot.json
+dev/.bm-snapshot.json
+
+# Secrets (AMO API credentials live in the environment / .env)
+.env
+
+# Local notes
+publishing_to_public.md
+
+# OS / editor cruft
+.DS_Store
+.claude/settings.local.json

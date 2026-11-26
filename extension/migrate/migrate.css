@@ -1,0 +1,106 @@
+@import url("../setup/setup.css");
+
+.steps > li.pending { opacity: 0.55; }
+.steps > li.pending h2 { color: var(--muted); }
+
+#drop {
+  margin-top: 12px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+#drop.over { border-color: var(--accent); background: var(--code-bg); }
+#drop p { margin: 0 0 10px; }
+
+.select-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.select-row .spacer { flex: 1; }
+
+.text-btn {
+  font: inherit;
+  font-size: 14px;
+  color: var(--accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.text-btn:hover { text-decoration: underline; }
+
+#space-list {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.space-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+.space-row + .space-row { border-top: 1px solid var(--border); }
+.space-row:hover { background: var(--code-bg); }
+.space-row .emoji { width: 22px; text-align: center; }
+.space-row .name { font-weight: 600; }
+.space-row .counts { margin-left: auto; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.space-row .profile {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--code-bg);
+  border-radius: 999px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+
+#names-row { margin-top: 10px; }
+#names-row p { margin: 0 0 8px; }
+
+.map-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 6px 0 6px 24px;
+}
+.map-box .hint { margin: 8px 0 0; font-size: 13px; }
+.map-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+.map-row .map-name { flex: 1; font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.map-row .map-count { font-weight: 400; color: var(--muted); font-size: 12px; }
+.map-row .map-arrow { color: var(--muted); }
+.map-row select {
+  font: inherit;
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 8px;
+  max-width: 55%;
+}
+
+.set-group { margin: 12px 0; }
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.check input { margin-top: 3px; }
+.check[hidden] { display: none; }
+
+#result p:first-child { font-weight: 600; }

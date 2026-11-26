@@ -1,0 +1,84 @@
+{
+  "manifest_version": 2,
+  "name": "Spaces - An Arc like Sidebar",
+  "version": "0.1.15",
+  "description": "Arc-style spaces for Firefox: vertical tabs, nested folders, pinned and auto-archiving tabs, and per-space profiles built on containers.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "spaces-sidebar@extension.local",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "permissions": [
+    "tabs",
+    "tabHide",
+    "contextualIdentities",
+    "cookies",
+    "sessions",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "theme",
+    "webRequest",
+    "webRequestBlocking",
+    "clipboardWrite",
+    "<all_urls>"
+  ],
+  "optional_permissions": [
+    "bookmarks"
+  ],
+  "background": {
+    "page": "background/background.html",
+    "persistent": true
+  },
+  "sidebar_action": {
+    "default_title": "Spaces",
+    "default_panel": "sidebar/sidebar.html",
+    "default_icon": "icons/icon.svg",
+    "open_at_install": true
+  },
+  "browser_action": {
+    "default_title": "Search spaces and tabs",
+    "default_icon": "icons/icon.svg",
+    "default_popup": "popup/popup.html"
+  },
+  "commands": {
+    "next-space": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+Right",
+        "mac": "MacCtrl+Alt+Right"
+      },
+      "description": "Switch to the next space"
+    },
+    "previous-space": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+Left",
+        "mac": "MacCtrl+Alt+Left"
+      },
+      "description": "Switch to the previous space"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "Command+Shift+Space"
+      },
+      "description": "Search spaces and tabs (quick switcher)"
+    },
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+S",
+        "mac": "MacCtrl+Alt+S"
+      },
+      "description": "Show or hide the Spaces sidebar"
+    }
+  }
+}

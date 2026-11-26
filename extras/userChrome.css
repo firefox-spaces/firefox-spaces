@@ -1,0 +1,16 @@
+/* Spaces: hide Firefox's horizontal tab strip */
+#TabsToolbar { visibility: collapse !important; }
+
+/* Spaces: hide the sidebar's title bar.
+   Old sidebar: Firefox sometimes labels it with another extension's name (e.g.
+   Bitwarden) while Spaces is open, so match every extension sidebar, not just ours;
+   native sidebars (Bookmarks, History) keep their header there.
+   New sidebar (Firefox 136+, sidebar.revamp): the header is #sidebar-panel-header
+   and carries no extension marker, so it is hidden for every panel. */
+#sidebar-box[sidebarcommand$="-sidebar-action"] #sidebar-header,
+#sidebar-panel-header {
+  display: none !important;
+}
+
+/* Spaces: hide the container (profile) label in the address bar */
+#userContext-icons { display: none !important; }

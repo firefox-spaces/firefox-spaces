@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spaces</title>
+    <link rel="stylesheet" href="sidebar.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="main-panel">
+        <header id="space-header"></header>
+        <main id="main-view">
+          <section id="pinned" aria-label="Pinned tabs"></section>
+          <div id="divider">
+            <span class="line"></span>
+            <button id="clear-btn" class="text-btn" title="Archive all temporary tabs in this space">Clear</button>
+          </div>
+          <button id="new-tab-btn" class="row new-tab"><span class="ico i-plus"></span><span class="title">New Tab</span></button>
+          <section id="temp" aria-label="Temporary tabs"></section>
+        </main>
+        <aside id="tabbar-tip" hidden>
+          <div class="tip-title">Hide Firefox’s tab bar?</div>
+          <p class="hint">Recommended: this sidebar replaces it. It’s a one-time, 2-minute setup that Firefox makes you do by hand.</p>
+          <div class="tip-actions">
+            <button id="tip-how" class="btn tip-primary">Show me how</button>
+            <button id="tip-dismiss" class="text-btn" title="You can find this later in Settings">No thanks</button>
+          </div>
+        </aside>
+      </div>
+
+      <section id="archive-view" class="panel" hidden>
+        <header class="panel-header">
+          <button class="icon-btn back-btn" title="Back"><span class="ico i-back"></span></button>
+          <h1>Archive</h1>
+          <button id="archive-clear" class="text-btn">Clear all</button>
+        </header>
+        <div class="search">
+          <span class="ico i-search"></span>
+          <input id="archive-search" type="search" placeholder="Search archived tabs">
+        </div>
+        <p class="hint panel-hint">Temporary tabs land here when they expire or you hit Clear. Click one to reopen it in this space.</p>
+        <div id="archive-list"></div>
+      </section>
+
+      <section id="settings-view" class="panel" hidden>
+        <header class="panel-header">
+          <button class="icon-btn back-btn" title="Back"><span class="ico i-back"></span></button>
+          <h1>Settings</h1>
+        </header>
+        <div id="settings-body"></div>
+      </section>
+
+      <footer id="footer">
+        <button id="archive-btn" class="icon-btn" title="Archive"><span class="ico i-archive"></span></button>
+        <div id="dots"></div>
+        <button id="add-space-btn" class="icon-btn" title="New space"><span class="ico i-plus"></span></button>
+        <button id="settings-btn" class="icon-btn" title="Settings"><span class="ico i-gear"></span></button>
+      </footer>
+    </div>
+
+    <div id="menu" role="menu" hidden></div>
+    <div id="toast" hidden></div>
+
+    <dialog id="space-dialog">
+      <form id="space-form" method="dialog">
+        <h2 id="sd-title">New space</h2>
+        <div class="field-row">
+          <input id="sd-emoji" class="emoji-input" maxlength="8" placeholder="🙂" aria-label="Icon (emoji)">
+          <input id="sd-name" placeholder="Space name" aria-label="Space name" required>
+        </div>
+        <div class="label">Color</div>
+        <div id="sd-colors" class="swatches"></div>
+        <label class="label" for="sd-profile">Profile</label>
+        <select id="sd-profile"></select>
+        <div id="sd-newprofile" class="subfields" hidden>
+          <input id="sd-pname" placeholder="Profile name (e.g. Work)" aria-label="New profile name">
+          <div id="sd-pcolors" class="swatches small"></div>
+        </div>
+        <p class="hint" id="sd-hint"></p>
+        <div class="actions">
+          <button type="button" id="sd-delete" class="danger">Delete</button>
+          <span class="spacer"></span>
+          <button type="button" id="sd-cancel">Cancel</button>
+          <button type="submit" id="sd-save" class="primary">Create</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="confirm-dialog">
+      <form method="dialog">
+        <p id="cd-msg"></p>
+        <div class="actions">
+          <span class="spacer"></span>
+          <button value="cancel">Cancel</button>
+          <button value="ok" id="cd-ok" class="danger">Delete</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="sidebar.js"></script>
+  </body>
+</html>

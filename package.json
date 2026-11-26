@@ -1,0 +1,15 @@
+{
+  "name": "spaces-extension",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "test": "node dev/smoke.mjs && node dev/smoke.mjs restart && node dev/arc-test.mjs && node dev/backup-test.mjs && node dev/backup-test.mjs device2",
+    "lint": "web-ext lint --source-dir extension",
+    "sign": "web-ext sign --source-dir extension --channel unlisted",
+    "release": "node dev/release.mjs"
+  },
+  "devDependencies": {
+    "web-ext": "^10.8.0"
+  }
+}

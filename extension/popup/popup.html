@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quick switcher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="palette-box" role="dialog" aria-label="Quick switcher">
+    <input id="palette-input" type="text" placeholder="Jump to a space or tab…"
+           autocomplete="off" spellcheck="false" autofocus>
+    <div id="palette-results" role="listbox"></div>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

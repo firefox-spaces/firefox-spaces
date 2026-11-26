@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Import from Arc</title>
+    <link rel="stylesheet" href="migrate.css">
+  </head>
+  <body>
+    <main>
+      <h1>Import from Arc</h1>
+      <p class="lede">
+        Bring your Arc spaces over: pinned tabs, folders and today’s tabs, space by space.
+        Nothing is sent anywhere — the file is read right here on your computer, and Arc itself
+        isn’t touched or changed.
+      </p>
+
+      <ol class="steps">
+        <li id="step-file">
+          <h2>Pick Arc’s sidebar file</h2>
+          <p>
+            Arc keeps its sidebar in a file named <code>StorableSidebar.json</code>. Choose it below.
+            On this computer it’s at:
+          </p>
+          <div class="copy-row">
+            <code id="arc-path"></code>
+            <button class="btn" id="copy-path">Copy path</button>
+          </div>
+          <p class="hint" id="path-hint"></p>
+          <div id="drop" tabindex="0">
+            <p><strong>Drop the file here</strong> or</p>
+            <button class="btn primary" id="pick">Choose StorableSidebar.json…</button>
+            <input type="file" id="file" hidden>
+          </div>
+          <p class="warn" id="parse-error" hidden></p>
+        </li>
+
+        <li id="step-preview" class="pending">
+          <h2>Choose what to import</h2>
+          <div id="preview" hidden>
+            <div class="select-row">
+              <span id="found-summary"></span>
+              <span class="spacer"></span>
+              <button class="text-btn" id="select-all">All</button>
+              <button class="text-btn" id="select-none">None</button>
+            </div>
+            <div id="space-list"></div>
+            <div class="set-group">
+              <label class="check">
+                <input type="checkbox" id="opt-today" checked>
+                <span>Include each space’s <strong>Today</strong> tabs (they become temporary tabs here, and auto-archive like any other)</span>
+              </label>
+              <label class="check" id="opt-favs-row" hidden>
+                <input type="checkbox" id="opt-favs" checked>
+                <span id="opt-favs-label"></span>
+              </label>
+              <label class="check">
+                <input type="checkbox" id="opt-profiles" checked>
+                <span id="opt-profiles-label">Recreate Arc’s <strong>profiles</strong>, keeping each space’s grouping. Each Arc profile maps to a Firefox profile below — matched by name where possible, and you can change any of them. Unchecked, every space uses the Default profile.</span>
+              </label>
+              <div id="profile-map" class="map-box" hidden>
+                <div id="profile-rows"></div>
+                <p class="hint">“New profile” creates a fresh container with separate cookies — you’ll be logged out there until you sign in. Picking an existing profile keeps its logins.</p>
+              </div>
+              <div id="names-row" class="warn" hidden>
+                <p>Your spaces use Arc profiles, but Arc keeps the profiles’ <em>names</em> in a second file.
+                Add it to carry the names over — otherwise the profiles here will be called
+                <span id="names-fallback"></span>.</p>
+                <div class="copy-row">
+                  <code id="state-path"></code>
+                  <button class="btn" id="copy-state-path">Copy path</button>
+                  <button class="btn" id="pick-names">Add Local State…</button>
+                </div>
+              </div>
+            </div>
+            <p class="hint" id="skipped-note" hidden></p>
+          </div>
+          <p class="hint" id="preview-placeholder">Waiting for the file…</p>
+        </li>
+
+        <li id="step-import" class="pending">
+          <h2>Import</h2>
+          <div id="import-box" hidden>
+            <p id="import-summary"></p>
+            <div class="actions">
+              <button class="btn primary" id="import-btn">Import into Spaces</button>
+            </div>
+          </div>
+          <div id="result" hidden>
+            <p id="result-text"></p>
+            <p class="hint">
+              Imported tabs start out asleep — they load the first time you click them in the sidebar,
+              so importing hundreds of tabs costs nothing until you use them. Your new spaces are in the
+              space switcher at the bottom of the sidebar. You can run this wizard again any time from
+              ⚙ Settings; importing twice makes duplicates, though.
+            </p>
+          </div>
+          <p class="hint" id="import-placeholder">Pick the spaces to import first.</p>
+        </li>
+      </ol>
+    </main>
+    <div id="toast" hidden></div>
+    <script type="module" src="migrate.js"></script>
+  </body>
+</html>
