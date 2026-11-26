@@ -42,7 +42,7 @@ try {
   process.exit(1);
 }
 try {
-  run('npx web-ext sign --source-dir extension --channel unlisted');
+  run('npx web-ext sign --source-dir extension --channel listed');
 } catch {
   // AMO may already have taken this version (e.g. upload succeeded, download timed out),
   // and it never signs a version twice, so keep the bump: the next run uses a fresh number.
