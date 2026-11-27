@@ -1,0 +1,14 @@
+Spaces is a vertical tab sidebar (Arc browser-style "spaces"). All code is unminified source; there is no remote code, no analytics and no network requests made by the extension. Source: https://github.com/firefox-spaces/firefox-spaces
+
+Why each permission is needed:
+• tabs, tabHide — the core feature: each window shows one "space" at a time, and other spaces' tabs are hidden (tabs.hide/show) rather than closed, so switching is instant.
+• contextualIdentities, cookies — each space can use its own container ("profile"). Firefox requires the cookies permission to open a tab in a specific container (tabs.create with cookieStoreId). Spaces never reads or changes cookies.
+• webRequest, webRequestBlocking, <all_urls> — one main_frame onBeforeRequest listener keeps each space's tabs in that space's container: if a top-level GET navigation would load in the wrong container (e.g. a link opened from another app), the tab is reopened in the right one. It only inspects the tab id, URL, method and cookieStoreId; it never reads or modifies page content, headers or bodies, and known tabs are answered synchronously from memory. POST navigations are always let through untouched.
+• sessions — stores a node id on each tab (sessions.setTabValue) so tabs can be matched back to the sidebar's model after Firefox restarts.
+• storage, unlimitedStorage — the sidebar's model (spaces, folders, hundreds of pinned tabs, the archive). unlimitedStorage keeps that data from being evicted when the disk is low.
+• alarms — a 15-minute timer that archives expired temporary tabs.
+• theme — optional per-space window tint (off with one checkbox in Settings).
+• clipboardWrite — "Copy link" in the tab context menu.
+• bookmarks (optional permission) — only requested when the user turns on "Save to Firefox profile", which keeps a copy of their spaces in a bookmarks folder and merges it between computers via Firefox Sync.
+
+To test: install, and the sidebar opens. Right-click in it to create folders and spaces; Ctrl+Shift+Space opens the quick switcher. The Arc import wizard (Settings → Import from Arc) needs an Arc StorableSidebar.json file; it can be skipped.

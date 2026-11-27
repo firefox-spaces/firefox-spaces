@@ -1,0 +1,1 @@
+Arc-style spaces for Firefox: a vertical tab sidebar with spaces, nested folders, pinned and auto-archiving tabs, a profile per space, a quick switcher, and a one-step import from Arc.

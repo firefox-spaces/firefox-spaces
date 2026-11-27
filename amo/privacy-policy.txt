@@ -1,0 +1,9 @@
+Spaces does not collect, transmit or sell any data.
+
+Everything Spaces stores — your spaces, tabs, folders, archive and settings — is kept in your browser's local extension storage on your computer. Spaces has no servers and makes no network requests of its own.
+
+If you turn on "Save to Firefox profile", Spaces also keeps a copy of your spaces in your Firefox bookmarks. If you use Firefox Sync, Firefox syncs those bookmarks to your other devices through your Mozilla account, the same as any other bookmark; Spaces itself sends nothing anywhere.
+
+The Arc import reads a file you choose from your computer. It is processed in your browser and never uploaded.
+
+Questions: open an issue at https://github.com/firefox-spaces/firefox-spaces/issues

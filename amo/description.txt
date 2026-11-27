@@ -1,0 +1,58 @@
+Spaces brings the Arc browser's sidebar to Firefox. Group your tabs into spaces, keep the sites you use every day pinned in nested folders, and let everything else tidy itself away. Each space can have its own profile, with separate cookies and logins.
+
+SPACES
+• Named spaces with an emoji or icon and a color. Each window shows one space at a time.
+• Instant switching: other spaces' tabs are hidden, not closed.
+• Switch by clicking a space's dot, swiping sideways with two fingers over the sidebar, or pressing Ctrl+Alt+← / → (Control+Option on Mac).
+• Optionally tint the browser window with the current space's color.
+• Works across multiple windows and survives Firefox restarts.
+
+PROFILES (CONTAINERS)
+• Every space can use its own Firefox container, with separate cookies, logins and site data. Spaces can also share one.
+• Tabs always open in their space's profile, including new tabs, links from other apps, and tabs dragged in from another window.
+• Create, rename, recolor and delete profiles from Settings.
+
+PINNED TABS
+• Pinned tabs stay until you remove them, organized in nested folders.
+• Each one remembers its pinned address. Closing it only unloads it, and one click takes it back to its pinned page.
+• Edit a pinned tab's address any time, and rename tabs and folders.
+• The current tab is always visible: its folders open automatically.
+
+TEMPORARY TABS AND ARCHIVE
+• Everything else is a temporary tab, archived automatically after 12 hours, 24 hours, 7 days or 30 days (or never).
+• "Clear" archives a space's temporary tabs at once.
+• The archive is searchable, and anything in it can be restored for 30 days.
+
+QUICK SWITCHER
+• Ctrl+Shift+Space (Cmd+Shift+Space on Mac) opens a search across every space, tab, folder and the archive.
+• Results show which space and folder each tab is in, and a matching folder lists everything inside it.
+• Press Enter to jump straight there. Spaces switch, sleeping tabs wake, and archived tabs are restored.
+
+ORGANIZE BY DRAG AND DROP
+• Drag tabs and folders to reorder or nest them, pin or unpin them, or move them to another space by dropping them on its dot.
+• Drag the dots to reorder spaces.
+• Right-click anything for more: rename, move to a space, unload, copy link, new folder, edit or delete a space.
+• A tab playing sound shows a speaker button to mute it.
+
+LIGHT ON MEMORY
+• Tabs you haven't opened stay unloaded until you click them, so hundreds of pinned tabs cost nothing.
+• Unload any tab to free its memory right away.
+
+IMPORT FROM ARC
+• A step-by-step wizard reads Arc's sidebar file and brings over your spaces, pinned tabs, nested folders, favorites and today's tabs.
+• Arc profiles are matched to your Firefox profiles by name, and you can change any match before importing.
+• Your Arc data is read on your computer and never uploaded.
+
+SYNC BETWEEN COMPUTERS (OPTIONAL)
+• Keeps your spaces, tabs, folders and settings in your Firefox bookmarks, so they survive reinstalling the extension.
+• With Firefox Sync, every computer that turns it on stays merged: changes made on one show up on the others, and when two computers change the same thing, the most recent change wins.
+• Tabs deleted on another computer go to the Archive, so nothing is lost, and tabs you have open are never closed.
+
+SHORTCUTS AND SETUP
+• Ctrl+Alt+S (Control+Option+S on Mac) shows or hides the sidebar. Every shortcut can be changed.
+• A built-in guide shows how to hide Firefox's horizontal tab bar so the sidebar replaces it (an optional 2-minute setup).
+
+PRIVACY
+Spaces collects no data. Everything stays in your browser, and nothing is sent anywhere. Bookmarks access is only requested if you turn on syncing.
+
+Requires Firefox 142 or newer.

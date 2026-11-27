@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Spaces - An Arc like Sidebar",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Arc-style spaces for Firefox: vertical tabs, nested folders, pinned and auto-archiving tabs, and per-space profiles built on containers.",
   "browser_specific_settings": {
     "gecko": {
