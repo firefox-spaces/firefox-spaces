@@ -11,6 +11,7 @@ const ROOT = new URL('..', import.meta.url);
 const MANIFEST = new URL('extension/manifest.json', ROOT);
 const METADATA = 'web-ext-artifacts/amo-metadata.json';
 const HOMEPAGE = 'https://firefox-spaces.github.io/firefox-spaces/';
+const CATEGORIES = { firefox: ['tabs'] };
 
 if (!process.env.WEB_EXT_API_KEY || !process.env.WEB_EXT_API_SECRET) {
   console.error('Set WEB_EXT_API_KEY and WEB_EXT_API_SECRET first (https://addons.mozilla.org/developers/addon/api/key/).');
@@ -29,6 +30,7 @@ writeFileSync(new URL(METADATA, ROOT), `${JSON.stringify({
   summary: { 'en-US': summary },
   description: { 'en-US': listing('description.txt') },
   homepage: { 'en-US': HOMEPAGE },
+  categories: CATEGORIES,
   version: { license, approval_notes: listing('reviewer-notes.txt') },
 }, null, 2)}\n`);
 
